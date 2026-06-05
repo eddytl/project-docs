@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CoffreFort.cm — Wireframes Candidature Émetteur</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:system-ui,-apple-system,sans-serif;background:#F0F4F8;padding:20px;}
+h1{font-size:18px;font-weight:600;color:#1A2E4A;margin-bottom:4px;}
+.sub{font-size:12px;color:#6B7A8D;margin-bottom:16px;}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.tab{font-size:12px;padding:6px 14px;border-radius:20px;border:1px solid #CBD5E1;background:#fff;color:#64748B;cursor:pointer;transition:all .15s;}
+.tab.active{background:#185FA5;color:#fff;border-color:#185FA5;}
+.tab.adm.active{background:#6B3FA0;border-color:#6B3FA0;}
+.step-bar{display:flex;align-items:center;margin-bottom:16px;background:#fff;padding:12px 16px;border-radius:10px;border:1px solid #E2E8F0;}
+.sdot{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;}
+.sc{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;border:2px solid #CBD5E1;background:#fff;color:#94A3B8;}
+.sc.done{background:#16A34A;border-color:#16A34A;color:#fff;}
+.sc.act{background:#185FA5;border-color:#185FA5;color:#fff;}
+.sl{font-size:10px;color:#94A3B8;text-align:center;max-width:70px;}
+.sl.act{color:#185FA5;font-weight:600;}
+.sl.done{color:#16A34A;}
+.sline{flex:1;height:2px;background:#E2E8F0;margin-top:-17px;}
+.sline.done{background:#16A34A;}
+.frame{border-radius:12px;overflow:hidden;border:1px solid #CBD5E1;background:#F8FAFC;}
+.topbar{height:48px;display:flex;align-items:center;padding:0 18px;gap:12px;}
+.topbar.cand{background:#0C447C;}
+.topbar.admin{background:#3B1F6E;}
+.logo{color:#fff;font-size:14px;font-weight:600;}
+.tag{font-size:10px;padding:3px 9px;border-radius:12px;font-weight:500;}
+.layout{display:flex;height:520px;}
+.sidebar{width:170px;background:#fff;border-right:1px solid #E2E8F0;padding:10px 0;flex-shrink:0;}
+.si{display:flex;align-items:center;gap:8px;padding:8px 14px;font-size:12px;color:#64748B;border-left:3px solid transparent;cursor:pointer;}
+.si.act{font-weight:600;border-left-color:#6B3FA0;color:#6B3FA0;background:#F5F0FD;}
+.main{flex:1;padding:16px;overflow:auto;background:#F8FAFC;}
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:10px;padding:14px;margin-bottom:10px;}
+.ct{font-size:10px;font-weight:600;color:#94A3B8;margin-bottom:10px;text-transform:uppercase;letter-spacing:.6px;}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;}
+.stat{border-radius:8px;padding:12px;}
+.inp{border:1px solid #CBD5E1;border-radius:6px;padding:7px 10px;font-size:12px;background:#fff;width:100%;margin-bottom:8px;color:#334155;}
+.lbl{font-size:10px;color:#64748B;display:block;margin-bottom:3px;}
+.bdg{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500;display:inline-block;}
+.bg{background:#DCFCE7;color:#15803D;}
+.bb{background:#DBEAFE;color:#1D4ED8;}
+.ba{background:#FEF3C7;color:#92400E;}
+.br{background:#FEE2E2;color:#991B1B;}
+.bgr{background:#F1F5F9;color:#475569;}
+.bp{background:#EDE9F7;color:#5B21B6;}
+.btn-p{background:#185FA5;color:#fff;border:none;border-radius:7px;padding:8px 14px;font-size:12px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
+.btn-o{color:#185FA5;border:1px solid #185FA5;background:transparent;border-radius:7px;padding:8px 14px;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:5px;}
+.btn-pu{background:#6B3FA0;color:#fff;border:none;border-radius:7px;padding:8px 14px;font-size:12px;font-weight:500;cursor:pointer;}
+.btn-gr{background:#15803D;color:#fff;border:none;border-radius:7px;padding:8px 14px;font-size:12px;font-weight:500;cursor:pointer;}
+.btn-rd{background:#DC2626;color:#fff;border:none;border-radius:7px;padding:8px 14px;font-size:12px;font-weight:500;cursor:pointer;}
+.btn-gl{background:#F1F5F9;color:#475569;border:1px solid #CBD5E1;border-radius:7px;padding:8px 14px;font-size:12px;cursor:pointer;}
+.dr{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #F1F5F9;}
+.dr:last-child{border-bottom:none;}
+.ub{border:2px dashed #CBD5E1;border-radius:8px;padding:12px;display:flex;align-items:center;gap:10px;margin-bottom:8px;cursor:pointer;background:#F8FAFC;}
+.ub.ok{border-color:#16A34A;background:#F0FDF4;}
+.ib{border-radius:7px;padding:9px 11px;margin-bottom:10px;display:flex;gap:8px;align-items:flex-start;}
+.pb{height:5px;background:#E2E8F0;border-radius:3px;}
+.pf{height:100%;border-radius:3px;background:#185FA5;}
+.tr{display:grid;align-items:center;padding:8px 10px;border-bottom:1px solid #F1F5F9;gap:6px;}
+.tr:last-child{border-bottom:none;}
+.th{background:#F8FAFC;font-size:10px;font-weight:600;color:#94A3B8;text-transform:uppercase;letter-spacing:.5px;border-radius:8px 8px 0 0;}
+.av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;flex-shrink:0;}
+.section-lbl{font-size:10px;color:#94A3B8;text-transform:uppercase;letter-spacing:.6px;font-weight:600;margin:12px 0 6px;}
+.navbtns{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+</style>
+</head>
+<body>
+<h1>CoffreFort.cm — Candidature Émetteur</h1>
+<p class="sub">Wireframes interactifs du processus complet — Côté Candidat (4 étapes) + Back-Office Admin (3 vues)</p>
+
+<div class="tabs" id="tabs">
+  <span style="font-size:11px;color:#94A3B8;font-weight:600;align-self:center;padding-right:4px;">CANDIDAT</span>
+  <button class="tab active" onclick="go(0,this)">1. Informations</button>
+  <button class="tab" onclick="go(1,this)">2. Documents légaux</button>
+  <button class="tab" onclick="go(2,this)">3. Convention</button>
+  <button class="tab" onclick="go(3,this)">4. Confirmation</button>
+  <span style="font-size:11px;color:#94A3B8;font-weight:600;align-self:center;padding:0 4px;margin-left:8px;">ADMIN</span>
+  <button class="tab adm" onclick="go(4,this)">Liste des dossiers</button>
+  <button class="tab adm" onclick="go(5,this)">Instruction du dossier</button>
+  <button class="tab adm" onclick="go(6,this)">Signature & Activation</button>
+</div>
+
+<div id="step-bar"></div>
+<div id="frame" class="frame"></div>
+<div class="navbtns" id="navbtns">
+  <button class="btn-gl" id="pb" onclick="prev()"><i class="ti ti-arrow-left"></i> Précédent</button>
+  <span id="steplbl" style="font-size:12px;color:#64748B;"></span>
+  <button class="btn-p" id="nb" onclick="next()">Suivant <i class="ti ti-arrow-right"></i></button>
+</div>
+
+<script>
+let cur=0,isAdm=false;
+const STEPS=['Informations','Documents légaux','Convention','Confirmation'];
+
+function tbC(s){return`<div class="topbar cand"><i class="ti ti-lock" style="font-size:15px;color:#B5D4F4;"></i><span class="logo">CoffreFort.cm</span><span class="tag" style="background:#185FA5;color:#B5D4F4;">${s}</span></div>`;}
+function tbA(){return`<div class="topbar admin"><i class="ti ti-shield" style="font-size:15px;color:#C4A6F0;"></i><span class="logo">CoffreFort.cm</span><span class="tag" style="background:#6B3FA0;color:#C4A6F0;">Back-Office Admin</span><div style="margin-left:auto;display:flex;gap:10px;color:#C4A6F0;font-size:16px;align-items:center;"><i class="ti ti-bell"></i><div style="width:30px;height:30px;border-radius:50%;background:#6B3FA0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:#fff;">AD</div></div></div>`;}
+function sbA(ac){const its=[['ti-dashboard','Tableau de bord','d'],['ti-building','Candidatures','admin_liste'],['ti-users','Émetteurs actifs','e'],['ti-file-check','Conventions','admin_convention'],['ti-settings','Paramètres','s']];return`<div class="sidebar">${its.map(([i,l,id])=>`<div class="si ${id===ac?'act':''}"><i class="ti ${i}"></i>${l}</div>`).join('')}</div>`;}
+
+const SS=[
+// 0
+()=>`${tbC('Demande d\'accréditation émetteur')}<div class="layout"><div class="main" style="max-width:none;">
+<div style="font-size:14px;font-weight:600;color:#1E293B;margin-bottom:3px;">Informations de l'organisation</div>
+<div style="font-size:12px;color:#64748B;margin-bottom:12px;">Ces informations seront vérifiées par notre équipe avant validation de votre dossier.</div>
+<div class="ib" style="background:#DBEAFE;"><i class="ti ti-info-circle" style="color:#185FA5;font-size:16px;"></i><span style="font-size:12px;color:#1E40AF;">Seules les <strong>organisations formellement enregistrées</strong> au Cameroun sont éligibles. Les particuliers ne peuvent pas être émetteurs.</span></div>
+<div class="g2">
+<div>
+<div class="section-lbl">Identité de l'organisation</div>
+${[['Raison sociale *','Ex : MTN Cameroun S.A.'],['Numéro RCCM *','Ex : RC/YAO/2003/B/12345'],['Numéro contribuable *','Ex : M123456789Z']].map(([l,p])=>`<span class="lbl">${l}</span><input class="inp" placeholder="${p}" readonly>`).join('')}
+<span class="lbl">Secteur d'activité *</span>
+<select class="inp" disabled><option>Télécommunications</option></select>
+<span class="lbl">Type d'émetteur *</span>
+<select class="inp" disabled><option>Employeur — bulletins de salaire</option></select>
+</div>
+<div>
+<div class="section-lbl">Coordonnées</div>
+<span class="lbl">Ville du siège *</span>
+<select class="inp" disabled><option>Yaoundé</option></select>
+${[['Adresse complète *','Avenue Kennedy, BP 1234'],['Email officiel *','rh@organisation.cm'],['Téléphone *','+237 222 000 000']].map(([l,p])=>`<span class="lbl">${l}</span><input class="inp" placeholder="${p}" readonly>`).join('')}
+<div class="section-lbl">Responsable du dossier</div>
+${[['Nom et prénom *','Ex : Marie Talla'],['Fonction *','Ex : Directrice des Ressources Humaines']].map(([l,p])=>`<span class="lbl">${l}</span><input class="inp" placeholder="${p}" readonly>`).join('')}
+</div>
+</div>
+</div></div>`,
+
+// 1
+()=>`${tbC('Demande d\'accréditation émetteur')}<div class="layout"><div class="main">
+<div style="font-size:14px;font-weight:600;color:#1E293B;margin-bottom:3px;">Documents légaux requis</div>
+<div style="font-size:12px;color:#64748B;margin-bottom:12px;">Uploadez copies certifiées conformes. Formats : PDF, JPG, PNG — max 5 Mo par fichier.</div>
+<div class="g2">
+<div>
+<div class="section-lbl">Documents obligatoires</div>
+${[{l:'Extrait RCCM (moins de 3 mois)',s:'Registre du Commerce et du Crédit Mobilier',ok:true},{l:'Attestation de localisation',s:'Délivrée par la mairie du siège social',ok:true},{l:'Carte de contribuable',s:'Direction Générale des Impôts',ok:false},{l:'Statuts de la société',s:'Signés et légalisés par un notaire',ok:false}].map(d=>`<div class="ub ${d.ok?'ok':''}">
+<i class="ti ${d.ok?'ti-file-check':'ti-upload'}" style="font-size:22px;color:${d.ok?'#16A34A':'#94A3B8'};flex-shrink:0;"></i>
+<div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#1E293B;">${d.l}</div><div style="font-size:10px;color:#64748B;">${d.s}</div></div>
+${d.ok?`<span class="bdg bg">Chargé ✓</span>`:`<button style="font-size:11px;padding:4px 10px;border-radius:5px;border:1px solid #185FA5;color:#185FA5;background:transparent;cursor:pointer;">Choisir</button>`}
+</div>`).join('')}
+</div>
+<div>
+<div class="section-lbl">Documents du responsable</div>
+${[{l:'Pièce d\'identité du responsable',s:'CNI ou Passeport en cours de validité',ok:true},{l:'Mandat ou délégation de pouvoir',s:'Si le responsable n\'est pas le Directeur Général',ok:false}].map(d=>`<div class="ub ${d.ok?'ok':''}">
+<i class="ti ${d.ok?'ti-file-check':'ti-upload'}" style="font-size:22px;color:${d.ok?'#16A34A':'#94A3B8'};flex-shrink:0;"></i>
+<div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#1E293B;">${d.l}</div><div style="font-size:10px;color:#64748B;">${d.s}</div></div>
+${d.ok?`<span class="bdg bg">Chargé ✓</span>`:`<button style="font-size:11px;padding:4px 10px;border-radius:5px;border:1px solid #185FA5;color:#185FA5;background:transparent;cursor:pointer;">Choisir</button>`}
+</div>`).join('')}
+<div class="section-lbl">Document optionnel</div>
+<div class="ub"><i class="ti ti-upload" style="font-size:22px;color:#94A3B8;flex-shrink:0;"></i><div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#1E293B;">Autre document utile</div><div style="font-size:10px;color:#64748B;">Certifications, agréments, licences opérateur...</div></div><button style="font-size:11px;padding:4px 10px;border-radius:5px;border:1px solid #185FA5;color:#185FA5;background:transparent;cursor:pointer;">Choisir</button></div>
+<div class="card">
+<div class="ct">Avancement du dossier</div>
+<div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:#1E293B;">3 / 5 documents uploadés</span><span style="font-size:12px;color:#185FA5;font-weight:600;">60%</span></div>
+<div class="pb"><div class="pf" style="width:60%;"></div></div>
+<div style="font-size:11px;color:#92400E;margin-top:7px;"><i class="ti ti-alert-circle" style="font-size:13px;margin-right:3px;"></i>2 documents manquants avant soumission</div>
+</div>
+</div>
+</div>
+</div></div>`,
+
+// 2
+()=>`${tbC('Demande d\'accréditation émetteur')}<div class="layout"><div class="main">
+<div style="font-size:14px;font-weight:600;color:#1E293B;margin-bottom:3px;">Convention de partenariat émetteur</div>
+<div style="font-size:12px;color:#64748B;margin-bottom:12px;">Lisez attentivement puis signez électroniquement par SMS.</div>
+<div class="g2">
+<div>
+<div class="card" style="height:260px;overflow:auto;">
+<div style="font-size:13px;font-weight:600;color:#1E293B;text-align:center;margin-bottom:8px;">CONVENTION DE PARTENARIAT ÉMETTEUR</div>
+<div style="font-size:10px;color:#64748B;text-align:center;margin-bottom:12px;">CoffreFort.cm — Version 2.1 — Janvier 2026</div>
+${[['Art. 1 — Objet','La présente convention définit les conditions dans lesquelles l\'Émetteur est autorisé à déposer des documents dans les coffres-forts des utilisateurs de CoffreFort.cm ayant consenti à cette connexion.'],['Art. 2 — Obligations','L\'Émetteur s\'engage à n\'envoyer que des documents authentiques, à jour et relatifs à sa relation contractuelle avec le destinataire. Tout envoi frauduleux entraîne la résiliation immédiate.'],['Art. 3 — Responsabilité','L\'Émetteur est seul responsable de l\'exactitude et de la légitimité des documents. CoffreFort.cm assure uniquement le transport sécurisé.'],['Art. 4 — Confidentialité','L\'Émetteur ne peut accéder qu\'aux accusés de réception de ses propres envois. Il n\'a aucun accès aux autres documents des utilisateurs.'],['Art. 5 — Durée','Convention d\'un an renouvelable tacitement. Résiliation possible avec 30 jours de préavis.']].map(([t,d])=>`<div style="margin-bottom:10px;"><div style="font-size:12px;font-weight:600;color:#1E293B;margin-bottom:3px;">${t}</div><div style="font-size:11px;color:#475569;line-height:1.6;">${d}</div></div>`).join('')}
+</div>
+<div style="display:flex;gap:8px;margin-top:8px;">
+<button class="btn-o" style="flex:1;justify-content:center;"><i class="ti ti-download"></i>Télécharger PDF</button>
+<button class="btn-o" style="flex:1;justify-content:center;"><i class="ti ti-printer"></i>Imprimer</button>
+</div>
+</div>
+<div>
+<div class="card">
+<div class="ct">Engagements à accepter</div>
+${[{t:'Je certifie que les informations fournies sont exactes et à jour',ok:true},{t:'Je m\'engage à n\'envoyer que des documents authentiques relatifs à mes employés/clients',ok:true},{t:'J\'accepte la suspension immédiate en cas d\'abus constaté',ok:true},{t:'J\'accepte les conditions tarifaires du Plan Entreprise',ok:false},{t:'J\'ai lu et accepte la Convention de Partenariat dans son intégralité',ok:false}].map(e=>`<div style="display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid #F1F5F9;">
+<div style="width:16px;height:16px;border-radius:3px;border:1px solid ${e.ok?'#185FA5':'#CBD5E1'};background:${e.ok?'#185FA5':'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+${e.ok?`<i class="ti ti-check" style="font-size:10px;color:#fff;"></i>`:''}</div>
+<span style="font-size:12px;color:#1E293B;">${e.t}</span></div>`).join('')}
+</div>
+<div class="card">
+<div class="ct">Signature électronique par SMS</div>
+<span class="lbl">Nom et qualité du signataire</span>
+<input class="inp" placeholder="Marie Talla — Directrice RH" readonly>
+<span class="lbl">Téléphone du signataire</span>
+<input class="inp" placeholder="+237 677 000 000" readonly>
+<button class="btn-p" style="width:100%;justify-content:center;margin-top:4px;"><i class="ti ti-device-mobile"></i>Recevoir le code SMS de signature</button>
+<div style="font-size:11px;color:#64748B;text-align:center;margin-top:6px;">Code valable 10 minutes — Non transmissible</div>
+</div>
+</div>
+</div>
+</div></div>`,
+
+// 3
+()=>`${tbC('Demande d\'accréditation émetteur')}<div class="layout"><div class="main" style="display:flex;align-items:center;justify-content:center;">
+<div style="max-width:520px;width:100%;text-align:center;padding:20px 0;">
+<div style="width:60px;height:60px;border-radius:50%;background:#DCFCE7;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;"><i class="ti ti-send" style="font-size:28px;color:#16A34A;"></i></div>
+<div style="font-size:16px;font-weight:600;color:#1E293B;margin-bottom:6px;">Dossier soumis avec succès !</div>
+<div style="font-size:13px;color:#475569;margin-bottom:20px;line-height:1.7;">Votre demande a bien été reçue. Notre équipe va instruire votre dossier et vous contacter dans les <strong>5 à 10 jours ouvrés</strong>.</div>
+<div class="card" style="text-align:left;margin-bottom:12px;">
+<div class="ct">Récapitulatif du dossier</div>
+${[['Organisation','MTN Cameroun S.A.'],['Référence dossier','CF-EMT-2026-0847'],['Date de soumission','30/05/2026 à 14h22'],['Documents fournis','5 / 5 documents complets'],['Délai de traitement','5 à 10 jours ouvrés']].map(([l,v])=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #F1F5F9;"><span style="font-size:12px;color:#64748B;">${l}</span><span style="font-size:12px;font-weight:500;color:#1E293B;">${v}</span></div>`).join('')}
+</div>
+<div class="card" style="text-align:left;background:#DBEAFE;border-color:#BFDBFE;margin-bottom:14px;">
+<div class="ct" style="color:#1E40AF;">Prochaines étapes</div>
+${[['1','Vérification des documents légaux par notre équipe','Sous 48h'],['2','Appel de confirmation avec le responsable du dossier','Sous 5 jours'],['3','Activation du portail émetteur et envoi des accès','Sous 10 jours']].map(([n,m,t])=>`<div style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid #BFDBFE;"><div style="width:22px;height:22px;border-radius:50%;background:#185FA5;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;">${n}</div><span style="flex:1;font-size:12px;color:#1E40AF;">${m}</span><span style="font-size:11px;color:#3B82F6;">${t}</span></div>`).join('')}
+</div>
+<div style="font-size:12px;color:#475569;">Email envoyé à <strong>rh@mtn.cm</strong><br>Référence à conserver : <strong style="color:#185FA5;">CF-EMT-2026-0847</strong></div>
+</div></div></div>`,
+
+// 4
+()=>`${tbA()}<div class="layout">${sbA('admin_liste')}<div class="main">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+<div><div style="font-size:14px;font-weight:600;color:#1E293B;">Candidatures émetteurs</div><div style="font-size:12px;color:#64748B;">12 dossiers en attente de traitement</div></div>
+<button class="btn-pu"><i class="ti ti-download"></i> Exporter rapport</button></div>
+<div class="g4">
+${[{n:'12',l:'En attente',bg:'#FEF3C7',tc:'#92400E'},{n:'3',l:'En instruction',bg:'#DBEAFE',tc:'#1D4ED8'},{n:'47',l:'Validés ce mois',bg:'#DCFCE7',tc:'#15803D'},{n:'2',l:'Refusés',bg:'#FEE2E2',tc:'#991B1B'}].map(s=>`<div class="stat" style="background:${s.bg};"><div style="font-size:22px;font-weight:600;color:${s.tc};">${s.n}</div><div style="font-size:11px;color:${s.tc};opacity:.8;margin-top:2px;">${s.l}</div></div>`).join('')}
+</div>
+<div style="display:flex;gap:8px;margin-bottom:10px;">
+<div style="flex:1;border:1px solid #CBD5E1;border-radius:7px;height:36px;display:flex;align-items:center;padding:0 12px;gap:8px;background:#fff;"><i class="ti ti-search" style="color:#94A3B8;"></i><span style="font-size:12px;color:#94A3B8;">Rechercher un dossier...</span></div>
+<select class="inp" style="width:auto;margin-bottom:0;" disabled><option>Tous les statuts</option></select>
+<select class="inp" style="width:auto;margin-bottom:0;" disabled><option>Tous les secteurs</option></select>
+</div>
+<div class="card" style="padding:0;overflow:hidden;">
+<div class="tr th" style="grid-template-columns:1.8fr 1fr 1fr .8fr .8fr .6fr;">
+<span>Organisation</span><span>Secteur</span><span>Soumission</span><span>Documents</span><span>Statut</span><span>Action</span>
+</div>
+${[{init:'MC',name:'MTN Cameroun',sect:'Télécoms',date:'30/05/2026',docs:'5/5',bc:'ba',st:'En attente'},{init:'UC',name:'UBA Cameroun',sect:'Banque',date:'28/05/2026',docs:'5/5',bc:'bb',st:'En instruction'},{init:'CN',name:'CNPS Cameroun',sect:'Administration',date:'25/05/2026',docs:'4/5',bc:'br',st:'Incomplet'},{init:'AF',name:'Afriland First Bank',sect:'Banque',date:'22/05/2026',docs:'5/5',bc:'ba',st:'En attente'},{init:'CM',name:'Camtel',sect:'Télécoms',date:'20/05/2026',docs:'5/5',bc:'bb',st:'En instruction'}].map((r,i)=>`<div class="tr" style="grid-template-columns:1.8fr 1fr 1fr .8fr .8fr .6fr;${i%2?'':'background:#F8FAFC;'}">
+<div style="display:flex;align-items:center;gap:8px;"><div class="av" style="background:#EDE9F7;color:#5B21B6;">${r.init}</div><span style="font-size:12px;font-weight:500;color:#1E293B;">${r.name}</span></div>
+<span style="font-size:12px;color:#475569;">${r.sect}</span>
+<span style="font-size:11px;color:#64748B;">${r.date}</span>
+<span style="font-size:12px;font-weight:600;color:${r.docs==='5/5'?'#16A34A':'#DC2626'};">${r.docs}</span>
+<span class="bdg ${r.bc}">${r.st}</span>
+<button class="btn-pu" style="font-size:11px;padding:5px 10px;">Instruire</button>
+</div>`).join('')}
+</div>
+</div></div>`,
+
+// 5
+()=>`${tbA()}<div class="layout">${sbA('admin_liste')}<div class="main">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+<i class="ti ti-arrow-left" style="font-size:16px;color:#64748B;cursor:pointer;"></i>
+<div><div style="font-size:14px;font-weight:600;color:#1E293B;">Instruction — MTN Cameroun S.A.</div><div style="font-size:12px;color:#64748B;">Réf. CF-EMT-2026-0847 • Soumis le 30/05/2026</div></div>
+<span class="bdg ba" style="margin-left:auto;">En attente</span>
+</div>
+<div class="g2">
+<div>
+<div class="card">
+<div class="ct">Informations déclarées</div>
+${[['Raison sociale','MTN Cameroun S.A.'],['RCCM','RC/YAO/2003/B/12345'],['N° Contribuable','M987654321Z'],['Secteur','Télécommunications'],['Type d\'émetteur','Employeur'],['Responsable','Marie Talla — DRH']].map(([l,v])=>`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #F1F5F9;"><span style="font-size:12px;color:#64748B;">${l}</span><span style="font-size:12px;font-weight:500;color:#1E293B;">${v}</span></div>`).join('')}
+</div>
+<div class="card">
+<div class="ct">Note interne admin</div>
+<textarea class="inp" style="height:70px;resize:none;" placeholder="Ajouter une note de traitement (visible équipe uniquement)..." readonly></textarea>
+<div style="text-align:right;"><button class="btn-gl" style="font-size:11px;padding:5px 10px;">Enregistrer</button></div>
+</div>
+</div>
+<div>
+<div class="card">
+<div class="ct">Vérification des documents</div>
+${[{l:'Extrait RCCM',d:'Exp. 12/2026',ok:true},{l:'Attestation de localisation',d:'Mairie de Yaoundé',ok:true},{l:'Carte de contribuable',d:'À vérifier',ok:null},{l:'Statuts de la société',d:'À vérifier',ok:null},{l:'CNI responsable',d:'Exp. 08/2028',ok:true}].map(d=>`<div style="display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid #F1F5F9;">
+<i class="ti ti-file-text" style="font-size:16px;color:#6B3FA0;"></i>
+<div style="flex:1;"><div style="font-size:12px;font-weight:500;color:#1E293B;">${d.l}</div><div style="font-size:10px;color:#64748B;">${d.d}</div></div>
+<div style="display:flex;gap:6px;align-items:center;">
+<button style="font-size:11px;padding:4px 9px;border-radius:5px;border:1px solid #6B3FA0;color:#6B3FA0;background:transparent;cursor:pointer;">Voir</button>
+${d.ok===true?`<span class="bdg bg">✓ Valide</span>`:d.ok===false?`<span class="bdg br">✗ Invalide</span>`:`<button style="font-size:11px;padding:4px 9px;border-radius:4px;background:#DCFCE7;color:#15803D;border:none;cursor:pointer;">✓ Valide</button><button style="font-size:11px;padding:4px 9px;border-radius:4px;background:#FEE2E2;color:#DC2626;border:none;cursor:pointer;">✗ Invalide</button>`}
+</div></div>`).join('')}
+</div>
+<div class="card">
+<div class="ct">Décision finale</div>
+<div style="display:flex;gap:8px;margin-bottom:8px;">
+<button class="btn-gr" style="flex:1;"><i class="ti ti-circle-check"></i> Valider le dossier</button>
+<button class="btn-rd" style="flex:1;"><i class="ti ti-circle-x"></i> Refuser</button>
+</div>
+<button class="btn-o" style="width:100%;justify-content:center;"><i class="ti ti-mail"></i> Demander des compléments</button>
+</div>
+</div>
+</div>
+</div></div>`,
+
+// 6
+()=>`${tbA()}<div class="layout">${sbA('admin_convention')}<div class="main">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+<div><div style="font-size:14px;font-weight:600;color:#1E293B;">Signature & Activation — MTN Cameroun</div><div style="font-size:12px;color:#64748B;">Dossier approuvé • Dernière étape avant mise en production</div></div>
+<span class="bdg bg">Dossier approuvé</span>
+</div>
+<div class="g2">
+<div>
+<div class="card">
+<div class="ct">État des signatures</div>
+${[{role:'Émetteur',name:'Marie Talla — DRH MTN Cameroun',date:'Signé le 30/05/2026 à 14h22',done:true},{role:'CoffreFort.cm (Admin)',name:'Jean Ekotto — Directeur Technique',date:'En attente de signature admin',done:false}].map(s=>`<div style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:9px;border:1px solid ${s.done?'#16A34A':'#E2E8F0'};background:${s.done?'#F0FDF4':'#F8FAFC'};margin-bottom:8px;">
+<i class="ti ${s.done?'ti-circle-check':'ti-clock'}" style="font-size:26px;color:${s.done?'#16A34A':'#94A3B8'};"></i>
+<div style="flex:1;"><div style="font-size:13px;font-weight:600;color:#1E293B;">${s.role}</div><div style="font-size:11px;color:#475569;">${s.name}</div><div style="font-size:11px;color:#64748B;">${s.date}</div></div>
+<span class="bdg ${s.done?'bg':'bgr'}">${s.done?'Signé':'En attente'}</span>
+</div>`).join('')}
+</div>
+<div class="card">
+<div class="ct">Paramètres d'activation</div>
+<span class="lbl">Plan tarifaire assigné</span>
+<select class="inp" disabled><option>Plan Entreprise — 150 000 FCFA / mois</option></select>
+<span class="lbl">Quota mensuel d'envois</span>
+<select class="inp" disabled><option>1 000 envois / mois</option></select>
+<span class="lbl">Date d'effet du contrat</span>
+<input class="inp" value="01/06/2026" readonly>
+<div class="ib" style="background:#DBEAFE;margin-top:4px;"><i class="ti ti-info-circle" style="color:#185FA5;font-size:15px;"></i><span style="font-size:12px;color:#1E40AF;">L'activation génère automatiquement le portail émetteur, les clés API sandbox et production, et envoie les accès à Marie Talla.</span></div>
+</div>
+</div>
+<div>
+<div class="card" style="height:200px;overflow:auto;margin-bottom:10px;">
+<div style="font-size:13px;font-weight:600;text-align:center;color:#1E293B;margin-bottom:8px;">CONVENTION DE PARTENARIAT — APERÇU</div>
+<div style="font-size:11px;color:#475569;line-height:1.8;">Entre CoffreFort.cm (ci-après "la Plateforme") et MTN Cameroun S.A., RCCM RC/YAO/2003/B/12345 (ci-après "l'Émetteur")...<br><br>Il est convenu que l'Émetteur est autorisé à déposer des documents dans les coffres-forts des utilisateurs ayant explicitement consenti à cette connexion. L'Émetteur s'engage à n'utiliser cette capacité qu'à des fins légitimes...<br><br><em style="color:#94A3B8;">[Suite — Articles 1 à 12 — voir version complète PDF]</em></div>
+</div>
+<div class="card">
+<div class="ct">Signature de l'administrateur CoffreFort.cm</div>
+<span class="lbl">Administrateur signataire</span>
+<input class="inp" value="Jean Ekotto — Directeur Technique" readonly>
+<div class="ib" style="background:#FEF3C7;margin-bottom:10px;"><i class="ti ti-alert-triangle" style="color:#D97706;font-size:15px;"></i><span style="font-size:12px;color:#92400E;"><strong>Action irréversible.</strong> La signature active le compte émetteur et déclenche l'envoi des accès immédiatement.</span></div>
+<div style="display:flex;gap:8px;">
+<button class="btn-gr" style="flex:1;"><i class="ti ti-signature"></i> Signer et activer</button>
+<button class="btn-gl" style="flex:1;">Reporter</button>
+</div>
+</div>
+</div>
+</div>
+</div></div>`,
+];
+
+function renderInd(ac){
+  const el=document.getElementById('step-bar');
+  if(isAdm){el.innerHTML='';return;}
+  let h='<div style="display:flex;align-items:center;background:#fff;padding:12px 16px;border-radius:10px;border:1px solid #E2E8F0;margin-bottom:14px;">';
+  STEPS.forEach((s,i)=>{
+    const dn=i<ac,at=i===ac;
+    h+=`<div class="sdot"><div class="sc ${dn?'done':at?'act':''}">${dn?'<i class="ti ti-check" style="font-size:10px;"></i>':i+1}</div><div class="sl ${dn?'done':at?'act':''}">${s}</div></div>`;
+    if(i<STEPS.length-1)h+=`<div class="sline ${dn?'done':''}"></div>`;
+  });
+  h+='</div>';
+  el.innerHTML=h;
+}
+
+function go(idx,btn){
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  isAdm=idx>=4;cur=idx;
+  document.getElementById('frame').innerHTML=SS[idx]();
+  if(isAdm){
+    document.getElementById('step-bar').innerHTML='';
+    document.getElementById('steplbl').textContent='';
+    document.getElementById('pb').style.display='none';
+    document.getElementById('nb').style.display='none';
+  } else {
+    document.getElementById('pb').style.display='';
+    document.getElementById('nb').style.display='';
+    renderInd(idx);
+    document.getElementById('steplbl').textContent=`Étape ${idx+1} sur 4`;
+    document.getElementById('pb').style.opacity=idx===0?'0.3':'1';
+    document.getElementById('pb').disabled=idx===0;
+    document.getElementById('nb').innerHTML=idx===3?'<i class="ti ti-check"></i> Terminer':'Suivant <i class="ti ti-arrow-right"></i>';
+  }
+}
+
+function next(){if(!isAdm&&cur<3){cur++;document.querySelectorAll('.tab')[cur].click();}}
+function prev(){if(!isAdm&&cur>0){cur--;document.querySelectorAll('.tab')[cur].click();}}
+
+go(0,document.querySelector('.tab'));
+</script>
+</body>
+</html>

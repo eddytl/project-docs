@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx nuxi@latest init mongopanel --package-manager npm --no-gitInit)",
+      "Bash(command -v nvm)",
+      "Read(//home/eddy/.nvm/**)",
+      "Bash(command -v node)",
+      "Bash(ls /home/eddy/.npm/_logs/ | tail -3)",
+      "Read(//home/eddy/.npm/_logs/**)",
+      "Bash(ls /home/eddy/.claude/projects/-home-eddy-next-ia-project-Mongo-panel/memory/ 2>/dev/null || echo \"directory exists\")",
+      "Read(//home/eddy/.claude/projects/-home-eddy-next-ia-project-Mongo-panel/memory/**)"
+    ]
+  }
+}
